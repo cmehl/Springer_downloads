@@ -17,12 +17,11 @@ if not os.path.isdir("./books"):
 wb = openpyxl.load_workbook('Free+English+textbooks.xlsx')
 sheet = wb.active
 
-
 # Selenium browser
 # Options modified to trigger download at click and save it in books folder
 options = webdriver.ChromeOptions()
 options.add_experimental_option('prefs', {
-"download.default_directory": '/Users/mehlcedric/Documents/Personnel/Misc/Springer_downloads/books', #Change default directory for downloads
+"download.default_directory": os.path.dirname(os.path.realpath(__file__)) +'/books', #Change default directory for downloads
 "download.prompt_for_download": False, #To auto download the file
 "download.directory_upgrade": True,
 "plugins.always_open_pdf_externally": True #It will not show PDF directly in chrome
